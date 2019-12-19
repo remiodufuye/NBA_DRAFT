@@ -2,7 +2,9 @@
 
 rails g resource team name logo 
 
-rails g resource  player player_name:string 
+rails g resource  player 
+
+player_name:string 
 team_abbreviation:string age:integer player_height:float player_weight:integer
 college:string country:string draft_year:integer draft_round:inetger 
 draft_number:integer gp:integer pts:integer reb:inetger ast:integer net_rating:integer 
@@ -18,3 +20,28 @@ https://rfathead-res.cloudinary.com/image/upload/h_300,w_300/logos/lgo_nba_milwa
 
 
 
+Giannis Antetokounmpo,MIL,19.0,205.74,92.98635999999999,None,Greece,2013,1,15,77,6.8,4.4,1.9,-4.4,
+0.047,0.16,0.15,0.518,0.12,2013-14  
+
+
+player_name:"Giannis Antetokounmpo"
+team_abbreviation:string age:integer player_height:float player_weight:integer
+college:string country:string draft_year:integer draft_round:inetger 
+draft_number:integer gp:integer pts:integer reb:inetger ast:integer net_rating:integer 
+oreb_pct:float dreb_pct:float usg_pct:float ts_pct:float ast_pct:float season:string 
+team:references
+
+
+
+INSERT INTO players (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+
+
+
+
+INSERT INTO players 
+(player_name , team_abbreviation , age  , player_height , player_weight ,college ,
+country , draft_year , draft_round,draft_number , gp ,pts ,reb , ast , net_rating , oreb_pct , dreb_pct , usg_pct , 
+ts_pct , ast_pct , season , team_id , created_at , updated_at)
+VALUES ( "Giannis Antetokounmpo","MIL",19.0,6.11,205.74,92.98635999999999,"None","Greece",2013,1,15,77,6.8,6.8,4.4,1.9, 
+4.4,0.047,0.16,0.15,0.518,"2103-14" , "" , "")   

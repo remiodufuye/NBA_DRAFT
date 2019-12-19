@@ -3,19 +3,19 @@ class CreatePlayers < ActiveRecord::Migration[6.0]
     create_table :players do |t|
       t.string :player_name
       t.string :team_abbreviation
-      t.integer :age
+      t.float :age
       t.float :player_height
-      t.integer :player_weight
+      t.float :player_weight
       t.string :college
       t.string :country
-      t.integer :draft_year
-      t.inetger :draft_round
-      t.integer :draft_number
-      t.integer :gp
-      t.integer :pts
-      t.inetger :reb
-      t.integer :ast
-      t.integer :net_rating
+      t.float :draft_year
+      t.float :draft_round
+      t.float :draft_number
+      t.float :gp
+      t.float :pts
+      t.float :reb
+      t.float :ast
+      t.float :net_rating
       t.float :oreb_pct
       t.float :dreb_pct
       t.float :usg_pct
