@@ -1,8 +1,8 @@
-/* 
+
 body {
     margin: 0;
     padding: 0;
-  } */
+  }
   
   #nba-draft-header{
     display: flex;
@@ -18,16 +18,10 @@ body {
     width: auto;
   }
    
-  #nba-title {
-    height: 3rem;
-    width: auto;
-  }
-
-
   /*  image / logo */ 
   .logo-avatar{
-      justify-self:center; 
-      height: 4rem; /* was 12 rem */
+      justify-self:center;
+      height: 12rem;
       width: auto; 
   }
   
@@ -50,10 +44,8 @@ body {
     padding-top: 10px;
     padding-bottom: 30px;
   }
-
   
   /*  Team Card  */ 
-
   div.card { 
     background-color: #eeeeee;
     height: 250px;
@@ -62,7 +54,6 @@ body {
     padding: 10px;
     border-radius: 10px;
   }
-
   
   p {
     font-size: 1.5em;
@@ -79,7 +70,7 @@ body {
   button {
     font-size: .65em;
     color: #fff;
-    background-color:blue;
+    background-color: green;
     border-radius: 10px;
   }
   

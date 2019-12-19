@@ -17,7 +17,51 @@ function getAllTeams(){
     })
 } 
 
+function getRandomTeam(){
+
+}
 
 function renderSingleTeam(team) {
+     
+    let teamContainer = document.querySelector("main")
+    let teamCard = document.createElement('div') 
+    teamCard.dataset.id = team.id
+    teamCard.classList.add('card') 
+    
+    let teamLogo = document.createElement('img')
+    teamLogo.classList.add('logo-avatar')
+    teamLogo.src = team.logo
+    
+    let teamName = document.createElement('p') 
+    teamName.innerText = team.name 
+
+    let addPlayerButton = document.createElement('button')
+    addPlayerButton.classList.add('button')
+    addPlayerButton.innerText = "Add Player" 
+    addPlayerButton.addEventListener("click",() => addNewPlayer(team.id))
+
+    let playerList = document.createElement("ul")
+    playerList.id = `player-list-${team.id}`
+
+    team.players.forEach(play => { renderSinglePlayer (play, playerList)})
+   
+
+    teamContainer.append(teamCard) 
+    teamCard.append(teamLogo)
+    teamCard.append(teamName) 
+    teamCard.append(addPlayerButton) 
+    teamCard.append(playerList)
+
     console.log(team)
-} 
+}  
+
+
+
+
+function addNewPlayer(teamId){
+    console.log("add a new player !!")  
+}
+
+
+function renderSinglePlayer() {
+}

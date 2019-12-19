@@ -45,3 +45,13 @@ country , draft_year , draft_round,draft_number , gp ,pts ,reb , ast , net_ratin
 ts_pct , ast_pct , season , team_id , created_at , updated_at)
 VALUES ( "Giannis Antetokounmpo","MIL",19.0,6.11,205.74,92.98635999999999,"None","Greece",2013,1,15,77,6.8,6.8,4.4,1.9, 
 4.4,0.047,0.16,0.15,0.518,"2103-14" , "" , "")   
+
+
+Cornflower Blue
+The National Basketball Association (NBA) Logo Color Scheme palette has 3 colors which are Dark Cornflower Blue (#17408B), White (#FFFFFF)
+ and Philippine Red (#C9082A).
+ NBA is a professional basketball league of North America and, at the time of writing, consists of 30 teams – 29 in the United States and 1 in Canada.
+
+     <header>
+      <h2>NBA DRAFT 2020-21 SEASON </h2>
+    </header>
