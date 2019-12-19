@@ -9,8 +9,15 @@ const PLAYERS_URL = `${BASE_URL}/players`
 })  
 
 
-function getAllTeams() {
-   
-    
+function getAllTeams(){
+    fetch(TEAMS_URL)
+    .then(response => response.json())
+    .then( allTeams => {allTeams.forEach(team => {
+            renderSingleTeam(team)})
+    })
+} 
 
-}
+
+function renderSingleTeam(team) {
+    console.log(team)
+} 
