@@ -1,0 +1,49 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player_name: MyString
+  team_abbreviation: MyString
+  age: 1
+  player_height: 1.5
+  player_weight: 1
+  college: MyString
+  country: MyString
+  draft_year: 1
+  draft_round: 
+  draft_number: 1
+  gp: 1
+  pts: 1
+  reb: 
+  ast: 1
+  net_rating: 1
+  oreb_pct: 1.5
+  dreb_pct: 1.5
+  usg_pct: 1.5
+  ts_pct: 1.5
+  ast_pct: 1.5
+  season: MyString
+  team: one
+
+two:
+  player_name: MyString
+  team_abbreviation: MyString
+  age: 1
+  player_height: 1.5
+  player_weight: 1
+  college: MyString
+  country: MyString
+  draft_year: 1
+  draft_round: 
+  draft_number: 1
+  gp: 1
+  pts: 1
+  reb: 
+  ast: 1
+  net_rating: 1
+  oreb_pct: 1.5
+  dreb_pct: 1.5
+  usg_pct: 1.5
+  ts_pct: 1.5
+  ast_pct: 1.5
+  season: MyString
+  team: two

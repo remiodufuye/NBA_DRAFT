@@ -1,0 +1,20 @@
+
+
+rails g resource team name logo 
+
+rails g resource  player player_name:string 
+team_abbreviation:string age:integer player_height:float player_weight:integer
+college:string country:string draft_year:integer draft_round:inetger 
+draft_number:integer gp:integer pts:integer reb:inetger ast:integer net_rating:integer 
+oreb_pct:float dreb_pct:float usg_pct:float ts_pct:float ast_pct:float season:string 
+team:references
+
+
+LAL = Los Angeles Lakers 
+MIL = Milwakee Bucks 
+
+https://i.pinimg.com/originals/2f/2f/f9/2f2ff9f9cc894675d3a4f3d83b42d385.jpg -- lakers 
+https://rfathead-res.cloudinary.com/image/upload/h_300,w_300/logos/lgo_nba_milwaukee_bucks.png -- bucks 
+
+
+
