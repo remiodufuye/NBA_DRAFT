@@ -4,10 +4,10 @@ const TEAMS_URL = `${BASE_URL}/teams`
 const PLAYERS_URL = `${BASE_URL}/players`
 
  document.addEventListener("DOMContentLoaded" , function() {
-     getAllTeams()
+    //getRandomTeams()
+    getAllTeams()
 
 })  
-
 
 function getAllTeams(){
     fetch(TEAMS_URL)
@@ -17,9 +17,19 @@ function getAllTeams(){
     })
 } 
 
-function getRandomTeam(){
+ function getRandomTeams(){
+     fetch(TEAMS_URL)
+    .then(response => response.json())
+    .then( allTeams => {
+        let randomTeam = allTeams[Math.floor(Math.random() * allTeams.length)]
+        let newTeamArray = []
+        newTeamArray.push(randomTeam)
+        console.log(randomTeam)
+        newTeamArray.forEach(team => {renderSingleTeam(team)})
+    })
 
-}
+ }
+
 
 function renderSingleTeam(team) {
      
@@ -33,35 +43,42 @@ function renderSingleTeam(team) {
     teamLogo.src = team.logo
     
     let teamName = document.createElement('p') 
-    teamName.innerText = team.name 
-
-    let addPlayerButton = document.createElement('button')
-    addPlayerButton.classList.add('button')
-    addPlayerButton.innerText = "Add Player" 
-    addPlayerButton.addEventListener("click",() => addNewPlayer(team.id))
-
+    teamName.innerText = `${team.location}  ${team.name}` 
+    
     let playerList = document.createElement("ul")
     playerList.id = `player-list-${team.id}`
 
     team.players.forEach(play => { renderSinglePlayer (play, playerList)})
    
-
     teamContainer.append(teamCard) 
     teamCard.append(teamLogo)
     teamCard.append(teamName) 
-    teamCard.append(addPlayerButton) 
     teamCard.append(playerList)
-
     console.log(team)
+
 }  
-
-
-
 
 function addNewPlayer(teamId){
     console.log("add a new player !!")  
 }
 
 
-function renderSinglePlayer() {
+function renderSinglePlayer(players, playerList) {
+    let playerLi = document.createElement('li')
+    playerLi.id = `player-${players.id}`
+    playerLi.innerText = `${players.name}`
+    playerList.append(playerLi) 
+
+    const tradePlayerBtn = document.createElement('button')
+    tradePlayerBtn.innerText = "Trade"
+    tradePlayerBtn.dataset.playerID = players.id 
+    tradePlayerBtn.addEventListener('click',tradePlayer)
+    tradePlayerBtn.classList.add('button')
+    playerList.append(tradePlayerBtn)
+}   
+
+
+
+function tradePlayer(event) {
+    console.log('Trade this Player!! ')
 }
