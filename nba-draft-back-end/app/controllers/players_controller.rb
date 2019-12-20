@@ -9,8 +9,13 @@ class PlayersController < ApplicationController
         def destroy
             player = Player.find(params[:id])
             player.destroy
-            # render json: {message: 'success'}
         end
+
+        private
+
+        def strong_params
+            
+        end 
 
 
 end

@@ -47,12 +47,21 @@ function renderSingleTeam(team) {
     let playerList = document.createElement("ul")
     playerList.id = `player-list-${team.id}`
 
+    let playerButton = document.createElement("button")
+    playerButton.classList.add('button')
+    playerButton.innerText = "Add New Player"
+
+    //playerButton.addEventListener("click" ,  () => )
+    
+    /*
     team.players.forEach(play => { renderSinglePlayer (play, playerList)})
-     
+     */
+
     teamContainer.append(teamCard) 
     teamCard.append(teamLogo)
     teamCard.append(teamName) 
     teamCard.append(playerList)
+    teamCard.append(playerButton)
 
 }  
 
