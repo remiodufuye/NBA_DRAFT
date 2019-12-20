@@ -4,8 +4,8 @@ const TEAMS_URL = `${BASE_URL}/teams`
 const PLAYERS_URL = `${BASE_URL}/players`
 
  document.addEventListener("DOMContentLoaded" , function() {
-    //getRandomTeams()
-    getAllTeams()
+     //getRandomTeams()
+     getAllTeams()
 
 })  
 
@@ -49,7 +49,7 @@ function renderSingleTeam(team) {
     playerList.id = `player-list-${team.id}`
 
     team.players.forEach(play => { renderSinglePlayer (play, playerList)})
-   
+     
     teamContainer.append(teamCard) 
     teamCard.append(teamLogo)
     teamCard.append(teamName) 
@@ -63,15 +63,16 @@ function addNewPlayer(teamId){
 }
 
 
-function renderSinglePlayer(players, playerList) {
+function renderSinglePlayer(player, playerList) {
+
     let playerLi = document.createElement('li')
-    playerLi.id = `player-${players.id}`
-    playerLi.innerText = `${players.name}`
+    playerLi.id = `player-${player.id}`
+    playerLi.innerText = `${player.player_name}`
     playerList.append(playerLi) 
 
     const tradePlayerBtn = document.createElement('button')
     tradePlayerBtn.innerText = "Trade"
-    tradePlayerBtn.dataset.playerID = players.id 
+    tradePlayerBtn.dataset.playerID = player.id 
     tradePlayerBtn.addEventListener('click',tradePlayer)
     tradePlayerBtn.classList.add('button')
     playerList.append(tradePlayerBtn)
