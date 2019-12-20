@@ -20,30 +20,15 @@ function getAllTeams(){
  function getRandomTeams(){
      fetch(TEAMS_URL)
     .then(response => response.json())
-    .then( allTeams => {
-        let randomTeam = allTeams[Math.floor(Math.random() * allTeams.length)]
-        let newTeamArray = []
-        newTeamArray.push(randomTeam)
-        console.log(randomTeam)
-        newTeamArray.forEach(team => {renderSingleTeam(team)}) 
+    .then( allTeams => { 
+        for ( i =0 ; i < 4 ; i++) {
+            var index = Math.floor(Math.random() * allTeams.length)
+            var pickedTeam = allTeams[index] 
+            allTeams.splice(index,1)
+            renderSingleTeam(pickedTeam)
+        }
     })
-
- }
-
-//  Original 
-//  function getRandomTeams(){
-//     fetch(TEAMS_URL)
-//    .then(response => response.json())
-//    .then( allTeams => {
-//        let randomTeam = allTeams[Math.floor(Math.random() * allTeams.length)]
-//        let newTeamArray = []
-//        newTeamArray.push(randomTeam)
-//        console.log(randomTeam)
-//        newTeamArray.forEach(team => {renderSingleTeam(team)}) 
-//    })
-
-// }
-
+ } 
 
 function renderSingleTeam(team) {
      
@@ -77,7 +62,6 @@ function addNewPlayer(teamId){
 
 
 function renderSinglePlayer(player, playerList) {
-
     let playerLi = document.createElement('li')
     playerLi.id = `player-${player.id}`
     playerLi.innerText = `${player.player_name}`
@@ -89,7 +73,6 @@ function renderSinglePlayer(player, playerList) {
     tradePlayerBtn.classList.add('button')
     playerList.append(tradePlayerBtn)
 }   
-
 
 
 function tradePlayer(event) {
