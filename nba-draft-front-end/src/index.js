@@ -25,7 +25,7 @@ function getAllTeams(){
             var index = Math.floor(Math.random() * allTeams.length)
             var pickedTeam = allTeams[index] 
             allTeams.splice(index,1)
-            renderSingleTeam(pickedTeam)
+            renderSingleTeam(pickedTeam) 
         }
     })
  } 
