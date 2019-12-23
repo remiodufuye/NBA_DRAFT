@@ -5,7 +5,6 @@ const PLAYERS_URL = `${BASE_URL}/players`
 
  document.addEventListener("DOMContentLoaded" , function() {
      getRandomTeams()
-     //getAllTeams()
 
 })  
 
