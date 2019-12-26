@@ -51,7 +51,6 @@ function renderSingleTeam(team) {
     playerButton.innerText = "Add New Player"
 
     //playerButton.addEventListener("click" ,  () => )
-    
     /*
     team.players.forEach(play => { renderSinglePlayer (play, playerList)})
      */
@@ -59,7 +58,7 @@ function renderSingleTeam(team) {
     teamContainer.append(teamCard) 
     teamCard.append(teamLogo)
     teamCard.append(teamName) 
-    teamCard.append(playerList)
+    teamCard.append(playerList) 
     teamCard.append(playerButton)
 
 }  
@@ -89,9 +88,7 @@ function getallPlayers() {
     .then( allplayers => {
         allplayers.forEach(player => renderAllplayers(player))
     })
-
 }
-
 
 
 function renderAllplayers(player) {
@@ -105,16 +102,13 @@ function renderAllplayers(player) {
      let playercountry = document.createElement('h2')
      let playercollege = document.createElement('h2')
      
-    
      playername.innerText = player.player_name
      playercountry.innerText = player.country
      playercollege.innerText = player.college 
 
-
      playersContainer.append(playerCard)  
 
      console.log(player) 
-
 
 }
 
