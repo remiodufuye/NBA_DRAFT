@@ -5,7 +5,7 @@ const PLAYERS_URL = `${BASE_URL}/players`
 
  document.addEventListener("DOMContentLoaded" , function() {
      getRandomTeams()
-
+     getallPlayers()
 })  
 
 function getAllTeams(){
@@ -31,7 +31,7 @@ function getAllTeams(){
 
 function renderSingleTeam(team) {
      
-    let teamContainer = document.querySelector("main")
+    let teamContainer = document.querySelector('main')
     let teamCard = document.createElement('div') 
     teamCard.dataset.id = team.id
     teamCard.classList.add('card') 
@@ -83,6 +83,41 @@ function renderSinglePlayer(player, playerList) {
 }   
 
 
+function getallPlayers() {
+    fetch(PLAYERS_URL)
+    .then(response => response.json())
+    .then( allplayers => {
+        allplayers.forEach(player => renderAllplayers(player))
+    })
+
+}
+
+
+
+function renderAllplayers(player) {
+  
+     let playersContainer = document.getElementById('players-container') 
+     let playerCard = document.createElement('div')
+    //     playerCard.classList.add('card') // change to 'card'
+     playerCard.id = player.id 
+
+     let playername = document.createElement('h2')
+     let playercountry = document.createElement('h2')
+     let playercollege = document.createElement('h2')
+     
+    
+     playername.innerText = player.player_name
+     playercountry.innerText = player.country
+     playercollege.innerText = player.college 
+
+
+     playersContainer.append(playerCard)  
+
+     console.log(player) 
+
+
+}
+
 function tradePlayer(event) {
-    console.log('Trade this Player!! ')
+    console.log('Trade this Player!!') 
 }
