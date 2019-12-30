@@ -93,7 +93,7 @@ function renderAllplayers(player) {
   
      let playersContainer = document.getElementById('players-container') 
      let playerCard = document.createElement('div')
-     //playerCard.classList.add('logo-avatar') // change to 'card'
+     playerCard.classList.add('card') // change to 'card'
      playerCard.id = `player-${player.id}`
 
      let playername = document.createElement('h2')
