@@ -30,6 +30,10 @@ pacers = Team.create(name:"Pacers" , abbreviation: "IND" , location: "Indiana", 
 
 
 # Lakers Players # 
+kingjames = Player.create(
+    player_name:"LeBron James",team_abbreviation:"LAL",age:19.0,player_height:203.20,player_weight:108.86208,college:"None",country:"USA",draft_year:2003,draft_round:1,
+    draft_number:1,gp:79,pts:20.9,reb:5.5,ast:5.9,net_rating:2.6, oreb_pct:0.035,dreb_pct:0.116,usg_pct:0.28,ts_pct:0.488,ast_pct:0.268,season:"2003-04",team_id:lakers.id
+    )  
 
 #  Bucks Players # 
 giannis = Player.create(
