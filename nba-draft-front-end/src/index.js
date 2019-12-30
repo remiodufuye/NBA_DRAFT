@@ -4,8 +4,8 @@ const TEAMS_URL = `${BASE_URL}/teams`
 const PLAYERS_URL = `${BASE_URL}/players`
 
  document.addEventListener("DOMContentLoaded" , function() {
-     getRandomTeams()
-     getallPlayers()
+    getRandomTeams()
+    getallPlayers() 
 })  
 
 function getAllTeams(){
@@ -88,11 +88,14 @@ function getallPlayers() {
 
 function renderAllplayers(player) {
     
+
     let playersContainer = document.getElementById('players-container') 
     let playerCard = document.createElement('div')
     playerCard.classList.add('card') // change to 'card'
     playerCard.id = `player-${player.id}`
     
+    
+
     let playername = document.createElement('h2')
     let playercountry = document.createElement('h2')
     let playercollege = document.createElement('h2') 

@@ -5,6 +5,7 @@
     <title>NBA Draft</title>
 
     <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/ec098aaea7.js" crossorigin="anonymous"></script>
     <!-- <link rel= "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"> -->
   </head>
   <body>
@@ -14,9 +15,20 @@
         <header id="nba-draft-header">  
             <img
               src="https://www.logodesignlove.com/images/classic/nba-logo.jpg"
-              alt="nba-header"/>
+              alt="nba-header"/> 
         </header>
+
     
+
+
+            <div class="search-box">
+              <input class = "search-txt" type="text" name="" placeholder="Search For Team">
+              <a class = "seacrh-btn" href="#"></a>
+              <i class="fas fa-search"></i>
+            </div>
+
+      
+
              <div> 
 
             </div>  
@@ -25,14 +37,25 @@
 
         </main> 
            
-     <p>  <h1> Full List Of Available Players </h1> </p>
+        <div id = "players-header"> 
 
-                  <div class = "ui container"> 
-                        <div id="players-container">
-                        </div> 
-                        
-                  </div> 
-  
+        </div>
+        
+        
+        <p>  <h1> Full List Of Available Players </h1> </p>
+
+        <div class="teamnav">
+          <input type="text" placeholder="Search For Player .."> 
+          <br> <br>
+        </div> 
+        
+        <div class = "ui container"> 
+          <div id="players-container">
+          </div> 
+          
+        </div> 
+        
+        
 
     <script src="./src/index.js"></script>
 
