@@ -29,8 +29,8 @@ function getAllTeams(){
     })
  } 
 
-function renderSingleTeam(team) {
-     
+function renderSingleTeam(team) { 
+
     let teamContainer = document.querySelector('main')
     let teamCard = document.createElement('div') 
     teamCard.dataset.id = team.id
@@ -61,6 +61,37 @@ function renderSingleTeam(team) {
 
 }  
 
+function renderAllplayers(player) {
+    
+    let playersContainer = document.querySelector('#players-container') 
+    let playerCard = document.createElement('div')
+    playerCard.classList.add('card') // change to 'card'
+    playerCard.dataset.id = `player-${player.id}`
+    
+    let playername = document.createElement('h2')
+    let playercountry = document.createElement('h2')
+    let playercollege = document.createElement('h2') 
+    let pickPlayer = document.createElement('button')
+    let profilePlayer = document.createElement('button')
+    let draftPick = document.createElement('h2')
+    
+    playername.innerText = player.player_name
+    playercountry.innerText = player.country
+    playercollege.innerText = player.college 
+    pickPlayer.innerText = "Pick Player"
+    profilePlayer.innerText = "View Stats"
+    pickPlayer.addEventListener('click', addNewPlayer)
+    profilePlayer.addEventListener('click', getProfile)
+    
+    playersContainer.append(playerCard)  
+    playerCard.append(playername)
+    playerCard.append(playercountry)
+    playerCard.append(playercollege) 
+    playerCard.append(pickPlayer) 
+    playerCard.append(profilePlayer)     
+    console.log(player) 
+     
+}
 
 
 function renderSinglePlayer(player, playerList) {
@@ -86,40 +117,6 @@ function getallPlayers() {
 }
 
 
-function renderAllplayers(player) {
-    
-
-    let playersContainer = document.getElementById('players-container') 
-    let playerCard = document.createElement('div')
-    playerCard.classList.add('card') // change to 'card'
-    playerCard.id = `player-${player.id}`
-    
-    
-
-    let playername = document.createElement('h2')
-    let playercountry = document.createElement('h2')
-    let playercollege = document.createElement('h2') 
-    let pickPlayer = document.createElement('button')
-    let profilePlayer = document.createElement('button')
-    let draftPick = document.createElement('h2')
-    
-    playername.innerText = player.player_name
-    playercountry.innerText = player.country
-    playercollege.innerText = player.college 
-    pickPlayer.innerText = "Pick Player"
-    profilePlayer.innerText = "View Stats"
-    pickPlayer.addEventListener('click', addNewPlayer)
-    profilePlayer.addEventListener('click', getProfile)
-    
-    playersContainer.append(playerCard)  
-    playerCard.append(playername)
-    playerCard.append(playercountry)
-    playerCard.append(playercollege) 
-    playerCard.append(pickPlayer) 
-    playerCard.append(profilePlayer)     
-    console.log(player) 
-    
-}
 
 function addNewPlayer(teamId){
     console.log("add a new player !!")   
