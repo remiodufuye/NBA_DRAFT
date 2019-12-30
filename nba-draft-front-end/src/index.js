@@ -43,17 +43,15 @@ function renderSingleTeam(team) {
     let teamName = document.createElement('p') 
     teamName.innerText = `${team.location}  ${team.name}` 
     
-    let playerList = document.createElement("ul")
+    let playerList = document.createElement('ul')
     playerList.id = `player-list-${team.id}`
 
-    let playerButton = document.createElement("button")
+    let playerButton = document.createElement('button')
     playerButton.classList.add('button')
     playerButton.innerText = "Add New Player"
 
     //playerButton.addEventListener("click" ,  () => )
-    /*
-    team.players.forEach(play => { renderSinglePlayer (play, playerList)})
-     */
+    /*  team.players.forEach(play => { renderSinglePlayer (play, playerList)})   */
 
     teamContainer.append(teamCard) 
     teamCard.append(teamLogo)
@@ -95,8 +93,8 @@ function renderAllplayers(player) {
   
      let playersContainer = document.getElementById('players-container') 
      let playerCard = document.createElement('div')
-    //     playerCard.classList.add('card') // change to 'card'
-     playerCard.id = player.id 
+     //playerCard.classList.add('logo-avatar') // change to 'card'
+     playerCard.id = `player-${player.id}`
 
      let playername = document.createElement('h2')
      let playercountry = document.createElement('h2')
@@ -105,8 +103,11 @@ function renderAllplayers(player) {
      playername.innerText = player.player_name
      playercountry.innerText = player.country
      playercollege.innerText = player.college 
-
+  
      playersContainer.append(playerCard)  
+     playerCard.append(playername)
+     playerCard.append(playercountry)
+     playerCard.append(playercollege) 
 
      console.log(player) 
 

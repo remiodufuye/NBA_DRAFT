@@ -103,7 +103,7 @@ body {
 
   /*  Player Card  */
 
-  #players-container {
+   #play-card {
     text-align: center;
     border: grey solid 1px;
     padding: 1rem;
