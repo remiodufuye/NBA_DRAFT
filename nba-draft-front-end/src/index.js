@@ -61,9 +61,6 @@ function renderSingleTeam(team) {
 
 }  
 
-function addNewPlayer(teamId){
-    console.log("add a new player !!")   
-}
 
 
 function renderSinglePlayer(player, playerList) {
@@ -90,33 +87,46 @@ function getallPlayers() {
 
 
 function renderAllplayers(player) {
-  
-     let playersContainer = document.getElementById('players-container') 
-     let playerCard = document.createElement('div')
-     playerCard.classList.add('card') // change to 'card'
-     playerCard.id = `player-${player.id}`
+    
+    let playersContainer = document.getElementById('players-container') 
+    let playerCard = document.createElement('div')
+    playerCard.classList.add('card') // change to 'card'
+    playerCard.id = `player-${player.id}`
+    
+    let playername = document.createElement('h2')
+    let playercountry = document.createElement('h2')
+    let playercollege = document.createElement('h2') 
+    let pickPlayer = document.createElement('button')
+    let profilePlayer = document.createElement('button')
+    let draftPick = document.createElement('h2')
+    
+    playername.innerText = player.player_name
+    playercountry.innerText = player.country
+    playercollege.innerText = player.college 
+    pickPlayer.innerText = "Pick Player"
+    profilePlayer.innerText = "View Stats"
+    pickPlayer.addEventListener('click', addNewPlayer)
+    profilePlayer.addEventListener('click', getProfile)
+    
+    playersContainer.append(playerCard)  
+    playerCard.append(playername)
+    playerCard.append(playercountry)
+    playerCard.append(playercollege) 
+    playerCard.append(pickPlayer) 
+    playerCard.append(profilePlayer)     
+    console.log(player) 
+    
+}
 
-     let playername = document.createElement('h2')
-     let playercountry = document.createElement('h2')
-     let playercollege = document.createElement('h2') 
-     let pickPlayer = document.createElement('button')
-     
-     playername.innerText = player.player_name
-     playercountry.innerText = player.country
-     playercollege.innerText = player.college 
-     pickPlayer.innerText = "Pick Player"
-     pickPlayer.addEventListener('click',addNewPlayer)
-  
-     playersContainer.append(playerCard)  
-     playerCard.append(playername)
-     playerCard.append(playercountry)
-     playerCard.append(playercollege) 
-     playerCard.append(pickPlayer) 
-
-     console.log(player) 
-
+function addNewPlayer(teamId){
+    console.log("add a new player !!")   
 }
 
 function tradePlayer(event) {
     console.log('Trade this Player!!') 
 }
+
+function getProfile(event) {
+    console.log('inside profile view!!')
+
+} 
