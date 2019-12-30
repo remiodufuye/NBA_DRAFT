@@ -5,6 +5,7 @@ class CreateTeams < ActiveRecord::Migration[6.0]
       t.string :abbreviation
       t.string :location
       t.string :logo
+      t.references :user, null: false, foreign_key: true # added new 
 
       t.timestamps
     end

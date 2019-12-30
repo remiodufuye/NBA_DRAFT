@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_19_171626) do
+ActiveRecord::Schema.define(version: 2019_12_30_175427) do
 
   create_table "players", force: :cascade do |t|
     t.string "player_name"
@@ -45,9 +45,18 @@ ActiveRecord::Schema.define(version: 2019_12_19_171626) do
     t.string "abbreviation"
     t.string "location"
     t.string "logo"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_teams_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "players", "teams"
+  add_foreign_key "teams", "users"
 end
