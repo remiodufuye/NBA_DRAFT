@@ -61,6 +61,13 @@ function renderSingleTeam(team) {
 
 }  
 
+function getallPlayers() {
+    fetch(PLAYERS_URL)
+    .then(response => response.json())
+    .then( allplayers => {
+        allplayers.forEach(player => renderAllplayers(player))
+    })
+}
 function renderAllplayers(player) {
     
     let playersContainer = document.querySelector('#players-container') 
@@ -108,13 +115,6 @@ function renderSinglePlayer(player, playerList) {
 }   
 
 
-function getallPlayers() {
-    fetch(PLAYERS_URL)
-    .then(response => response.json())
-    .then( allplayers => {
-        allplayers.forEach(player => renderAllplayers(player))
-    })
-}
 
 
 
