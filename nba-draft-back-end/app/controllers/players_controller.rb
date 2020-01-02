@@ -13,6 +13,7 @@ class PlayersController < ApplicationController
         def destroy
             player = Player.find(params[:id])
             player.destroy
+            render json: {message: 'success'}
         end
 
         private
@@ -22,6 +23,10 @@ class PlayersController < ApplicationController
                                             :player_height,:player_weight,:college,:country,:draft_year,:draft_round,:draft_number,
                                             :gp,:pts,:reb,:ast,:net_rating,:oreb_pct,:dreb_pct,:usg_pct,:ts_pct,:ast_pct,:season )
         end 
+
+        
+       
+
 
 end
 

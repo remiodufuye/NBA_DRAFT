@@ -33,7 +33,6 @@ function getAllTeams(){
 function renderSingleTeam(team) { 
 
     let teamContainer = document.querySelector('main')
-    // let teamContainer = document.querySelector('#teams-container')
     let teamCard = document.createElement('div') 
     teamCard.dataset.id = team.id
     teamCard.classList.add('card') 
@@ -71,11 +70,9 @@ function getallPlayers() {
     })
 }
 function renderAllplayers(player) {
-    
-    // let playersContainer = document.querySelector('#players-container') 
     let playersContainer = document.querySelector('#players-container') 
     let playerCard = document.createElement('div')
-    playerCard.classList.add('card') // change to 'card'
+    playerCard.classList.add('card') 
     playerCard.dataset.id = `player-${player.id}`
     
     let playername = document.createElement('h2')
@@ -94,7 +91,7 @@ function renderAllplayers(player) {
 
     pickPlayer.addEventListener('click', addNewPlayer)
     profilePlayer.addEventListener('click', getProfile)
-    retirePlayer.addEventListener('click', retirePlayer)
+    retirePlayer.addEventListener('click', ()=> removePlayer(player.id,playerCard , player.player_name))
     
     playersContainer.append(playerCard)  
     playerCard.append(playername)
@@ -117,7 +114,7 @@ function renderSinglePlayer(player, playerList) {
     const tradePlayerBtn = document.createElement('button')
     tradePlayerBtn.innerText = "Trade"
     tradePlayerBtn.dataset.playerID = player.id 
-    tradePlayerBtn.addEventListener('click',() => tradePlayer(playerLi.id))
+    tradePlayerBtn.addEventListener('click',() => tradePlayer(player.id,playerLi,tradePlayerBtn))
     tradePlayerBtn.classList.add('trade')
     
     playerList.append(playerLi) 
@@ -125,15 +122,42 @@ function renderSinglePlayer(player, playerList) {
 }   
 
 
+function removePlayer(playerID,playerCard,playerName) {
+
+   const configOptions = {
+        method:"DELETE",
+        headers: {
+            "Content-Type":"application/json",
+            "Accept":"application/json"
+        }
+   } 
+
+   fetch(`${BASE_URL}/players/${playerID}`, configOptions) 
+   .then(res => res.json())
+   .then(data => {
+       playerCard.remove()
+       const playerLiItem = document.getElementById(`player-${player.id}`)
+       playerLiItem.remove() 
+    })
+   .catch(error => console.log(error))
+
+   alert(`${playerName} Will Be Retired !!`) 
+
+
+    console.log ('Retiring this Player')
+}
 
 
 function addNewPlayer(teamId){
     console.log("add a new player !!")   
 }
 
-function tradePlayer(event,playerID) {
-    console.log('Trade this Player!!') 
-}
+function tradePlayer(playerID ,playerLi,playerButton) {
+  
+        playerLi.remove()
+        playerButton.remove()
+
+} 
 
 function getProfile(event) {
     console.log('inside profile view!!')
