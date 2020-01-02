@@ -1,4 +1,5 @@
 
+
 const BASE_URL = "http://localhost:3000"
 const TEAMS_URL = `${BASE_URL}/teams`
 const PLAYERS_URL = `${BASE_URL}/players`
@@ -209,12 +210,48 @@ function DisplayProfile(player) {
     myModalSpan.classList.add('close')
     myModalSpan.innerText = 'x'
     
-    let myModalSpanContent = document.createElement('p')
+    // let myModalSpanContent = document.createElement('p')
+    // myModalSpanContent.innerText = "Is This Working!!" 
+      
+    // player card start 
+    let myModalSpanContent = document.createElement('card')
+    let playername = document.createElement('h3')
+    playername.innerText = player.player_name 
+    let playerPosition = document.createElement('h3')
+    playerPosition.innerText = player.player_position 
 
-    myModalSpanContent.innerText = "Is This Working!!" 
+    let playerRound = document.createElement('h3')
+    playerRound.innerText = player.draft_round 
+
+    let playerPoints = document.createElement('h3')
+    playerPoints.innerText = player.pts 
+
+    let playerRebounds = document.createElement('h3')
+    playerRebounds.innerText = player.reb 
+
+    let playerAssists = document.createElement('h3')
+    playerAssists.innerText = player.ast_pct 
+
+    // player card end 
+
     myModal.append(myModalContent)
     myModalContent.append(myModalSpan)
     myModalSpan.append(myModalSpanContent) 
+
+    // append card start
+   
+    myModalSpanContent.append(playername)
+    myModalSpanContent.append(playerPosition)
+    myModalSpanContent.append(playerRound)
+    myModalSpanContent.append(playerPoints)
+    myModalSpanContent.append(playerRebounds)
+    myModalSpanContent.append(playerAssists)
+ 
+
+
+    // append card end 
+
+     
     
     myModal.style.display = "block" ; 
     
