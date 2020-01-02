@@ -51,11 +51,12 @@ function renderSingleTeam(team) {
     let playerList = document.createElement('ul')
     playerList.id = `player-list-${team.id}`
 
+    team.players.forEach(plr => {renderSinglePlayer(plr, playerList)})
 
     teamContainer.append(teamCard) 
     teamCard.append(teamLogo)
     teamCard.append(teamName) 
-    teamCard.append(playerList) 
+    teamCard.append(playerList)     
     teamCard.append(addPlayerButton)
 
 }  
@@ -75,6 +76,7 @@ function renderAllplayers(player) {
     playerCard.dataset.id = `player-${player.id}`
     
     let playername = document.createElement('h2')
+    let playerPosition = document.createElement('h3')
     let playercountry = document.createElement('h2')
     let playercollege = document.createElement('h2') 
     let pickPlayer = document.createElement('button')
@@ -103,7 +105,7 @@ function renderAllplayers(player) {
 function renderSinglePlayer(player, playerList) {
     let playerLi = document.createElement('li')
     playerLi.id = `player-${player.id}`
-    playerLi.innerText = `${player.player_name}`
+    playerLi.innerText = `${player.player_name} (${player.player_position})`
     playerList.append(playerLi) 
     const tradePlayerBtn = document.createElement('button')
     tradePlayerBtn.innerText = "Trade"

@@ -49,18 +49,18 @@ pacers = Team.create(name:"Pacers" , abbreviation: "IND" , location: "Indiana", 
 
 # Lakers Players # 
 kingjames = Player.create(
-    player_name:"LeBron James",team_abbreviation:"LAL",age:19.0,player_height:203.20,player_weight:108.86208,college:"None",country:"USA",draft_year:2003,draft_round:1,
+    player_name:"LeBron James",player_position:"Forward",team_abbreviation:"LAL",age:19.0,player_height:203.20,player_weight:108.86208,college:"None",country:"USA",draft_year:2003,draft_round:1,
     draft_number:1,gp:79,pts:20.9,reb:5.5,ast:5.9,net_rating:2.6, oreb_pct:0.035,dreb_pct:0.116,usg_pct:0.28,ts_pct:0.488,ast_pct:0.268,season:"2003-04",team_id:lakers.id
     )  
 
 #  Bucks Players # 
 giannis = Player.create(
-player_name:"Giannis Antetokounmpo",team_abbreviation:"MIL",age:19.0,player_height:205.74,player_weight:92.98635999999999,college:"None",country:"Greece",draft_year:2013,draft_round:1,
+player_name:"Giannis Antetokounmpo",player_position:"Center" , team_abbreviation:"MIL",age:19.0,player_height:205.74,player_weight:92.98635999999999,college:"None",country:"Greece",draft_year:2013,draft_round:1,
 draft_number:15,gp:77,pts:6.8,reb:6.8,ast:4.4,net_rating:1.9, oreb_pct:4.4,dreb_pct:0.047,usg_pct:0.16,ts_pct:0.15,ast_pct:0.518,season:"2013-14",team_id:bucks.id
 )  
  
 kmiddleton = Player.create(
-player_name:"Khris Middleton",team_abbreviation:"MIL",age:21.0,player_height:200.66,player_weight:97.52228000000001,college:"Texas A&M",country:"USA",draft_year:2012,draft_round:2,
+player_name:"Khris Middleton",player_position:"Forward" , team_abbreviation:"MIL",age:21.0,player_height:200.66,player_weight:97.52228000000001,college:"Texas A&M",country:"USA",draft_year:2012,draft_round:2,
 draft_number:39,gp:27,pts:6.1,reb:1.9,ast:1.0,net_rating:2.2,oreb_pct:0.01,dreb_pct:0.124,usg_pct:0.159,ts_pct:0.532,ast_pct:0.085,season:"2012-13",team_id:bucks.id 
 )
 
