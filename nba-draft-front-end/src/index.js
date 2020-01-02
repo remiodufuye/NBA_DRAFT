@@ -1,4 +1,5 @@
 
+
 const BASE_URL = "http://localhost:3000"
 const TEAMS_URL = `${BASE_URL}/teams`
 const PLAYERS_URL = `${BASE_URL}/players`
@@ -92,7 +93,7 @@ function renderAllplayers(player) {
     seasonJoined.innerText = ` Joined NBA: ${player.season}`
 
     pickPlayer.addEventListener('click', addNewPlayer)
-    profilePlayer.addEventListener('click', getProfile)
+    profilePlayer.addEventListener('click', () => getProfile(player.id))
     retirePlayer.addEventListener('click', ()=> removePlayer(player.id,playerCard , player.player_name))
     
     playersContainer.append(playerCard)  
@@ -103,7 +104,7 @@ function renderAllplayers(player) {
     playerCard.append(profilePlayer)   
     playerCard.append(retirePlayer) 
 
-    console.log(player) 
+    // console.log(player) 
      
 }
 
@@ -172,37 +173,10 @@ function addNewPlayer(teamId,playerList){
         } ).then(error => console.log(error))
     }
 
-
     
     console.log("add a new player !!")   
 }
 
-
-
-// function addNewPokemon(id) { 
-//     const trainerList = document.getElementById(`trainer-list-${id}`)
-//     const pokeCount = trainerList.childElementCount
-//     if (pokeCount < 6) {
-//         fetch(POKEMONS_URL, {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 'Accept': "application/json"
-//             },
-//             body: JSON.stringify({
-//                 trainer_id: id
-//             })
-//         })
-//         .then(res => res.json())
-//         .then(pokemon => {
-//             const trainerId = pokemon.trainer_id
-//             const trainer = document.getElementById(`trainer-list-${trainerId}`)
-//             renderSinglePokemon(pokemon, trainer)
-//         })
-//     } else {
-//         alert("Stop catchin em all!")
-//     }
-// }
 
 
 
@@ -213,7 +187,114 @@ function tradePlayer(playerID ,playerLi,playerButton) {
 
 } 
 
-function getProfile(event) {
-    console.log('inside profile view!!')
+
+function getProfile(profileID) {
+    
+    fetch(`http://localhost:3000/players/${profileID}`) 
+    .then(res => res.json())
+    .then(data => DisplayProfile(data))
+    .catch(error => console.log(error)) 
+} 
+
+
+function DisplayProfile(player) {
+
+    console.log(player)
+    
+    let myModal = document.getElementById('myModal')
+    
+    let myModalContent = document.createElement('div')
+    myModalContent.classList.add('modal-content')
+    
+    let myModalSpan = document.createElement('span')
+    myModalSpan.classList.add('close')
+    myModalSpan.innerText = 'x'
+    
+    // let myModalSpanContent = document.createElement('p')
+    // myModalSpanContent.innerText = "Is This Working!!" 
+      
+    // player card start 
+    let myModalSpanContent = document.createElement('card')
+    let playername = document.createElement('h3')
+    playername.innerText = player.player_name 
+    let playerPosition = document.createElement('h3')
+    playerPosition.innerText = player.player_position 
+
+    let playerRound = document.createElement('h3')
+    playerRound.innerText = player.draft_round 
+
+    let playerPoints = document.createElement('h3')
+    playerPoints.innerText = player.pts 
+
+    let playerRebounds = document.createElement('h3')
+    playerRebounds.innerText = player.reb 
+
+    let playerAssists = document.createElement('h3')
+    playerAssists.innerText = player.ast_pct 
+
+    // player card end 
+
+    myModal.append(myModalContent)
+    myModalContent.append(myModalSpan)
+    myModalSpan.append(myModalSpanContent) 
+
+    // append card start
+   
+    myModalSpanContent.append(playername)
+    myModalSpanContent.append(playerPosition)
+    myModalSpanContent.append(playerRound)
+    myModalSpanContent.append(playerPoints)
+    myModalSpanContent.append(playerRebounds)
+    myModalSpanContent.append(playerAssists)
+ 
+
+
+    // append card end 
+
+     
+    
+    myModal.style.display = "block" ; 
+    
+    var span = document.getElementsByClassName("close")[0];
+    
+     span.onclick =  function() {
+        myModalSpan.style.display = "none"
+
+        window.onclick = function(event) {
+            if (event.target == myModal) {
+                myModal.style.display = "none" 
+            }
+          }
+
+    }
+    
+
+    console.log('inside profile/stats view!!')
+
 
 } 
+
+// id: 190
+// player_name: "Karl-Anthony Towns"
+// player_position: "Point Guard"
+// team_abbreviation: "FAKER"
+// age: 19
+// player_height: 203.2
+// player_weight: 108.86208
+// college: "Northern Oklahoma Institute"
+// country: "USA"
+// draft_year: 2003
+// draft_round: 1
+// draft_number: 1
+// gp: 79
+// pts: 20.9
+// reb: 5.5
+// ast: 5.9
+// net_rating: 2.6
+// oreb_pct: 0.035
+// dreb_pct: 0.116
+// usg_pct: 0.28
+// ts_pct: 0.488
+// ast_pct: 0.268
+// season: "2003-04"
+// team_id: 275

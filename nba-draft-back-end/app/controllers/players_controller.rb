@@ -18,7 +18,12 @@ class PlayersController < ApplicationController
             render json: player
 
         end 
+        
 
+        def show
+            player = Player.find(params[:id])
+            render json: player.to_json(:except => [:created_at, :updated_at])
+        end 
 
 
 
