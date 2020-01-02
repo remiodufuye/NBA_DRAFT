@@ -32,6 +32,7 @@ function getAllTeams(){
 function renderSingleTeam(team) { 
 
     let teamContainer = document.querySelector('main')
+    // let teamContainer = document.querySelector('#teams-container')
     let teamCard = document.createElement('div') 
     teamCard.dataset.id = team.id
     teamCard.classList.add('card') 
@@ -70,6 +71,7 @@ function getallPlayers() {
 }
 function renderAllplayers(player) {
     
+    // let playersContainer = document.querySelector('#players-container') 
     let playersContainer = document.querySelector('#players-container') 
     let playerCard = document.createElement('div')
     playerCard.classList.add('card') // change to 'card'
@@ -106,12 +108,14 @@ function renderSinglePlayer(player, playerList) {
     let playerLi = document.createElement('li')
     playerLi.id = `player-${player.id}`
     playerLi.innerText = `${player.player_name} (${player.player_position})`
-    playerList.append(playerLi) 
+    
     const tradePlayerBtn = document.createElement('button')
     tradePlayerBtn.innerText = "Trade"
     tradePlayerBtn.dataset.playerID = player.id 
-    tradePlayerBtn.addEventListener('click',tradePlayer)
+    tradePlayerBtn.addEventListener('click',() => tradePlayer(playerLi.id))
     tradePlayerBtn.classList.add('trade')
+    
+    playerList.append(playerLi) 
     playerList.append(tradePlayerBtn)
 }   
 
@@ -122,7 +126,7 @@ function addNewPlayer(teamId){
     console.log("add a new player !!")   
 }
 
-function tradePlayer(event) {
+function tradePlayer(event,playerID) {
     console.log('Trade this Player!!') 
 }
 
