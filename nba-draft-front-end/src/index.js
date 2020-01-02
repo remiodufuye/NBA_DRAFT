@@ -111,9 +111,11 @@ function renderSinglePlayer(player, playerList) {
     tradePlayerBtn.innerText = "Trade"
     tradePlayerBtn.dataset.playerID = player.id 
     tradePlayerBtn.addEventListener('click',tradePlayer)
-    tradePlayerBtn.classList.add('button')
+    tradePlayerBtn.classList.add('trade')
     playerList.append(tradePlayerBtn)
 }   
+
+
 
 
 function addNewPlayer(teamId){
