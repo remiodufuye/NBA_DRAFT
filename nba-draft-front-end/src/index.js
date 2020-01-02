@@ -40,17 +40,23 @@ function renderSingleTeam(team) {
     teamLogo.classList.add('logo-avatar')
     teamLogo.src = team.logo
     
+    let addPlayerButton = document.createElement('button')
+    addPlayerButton.innerText = "Add New Player"
+    addPlayerButton.classList.add('button')
+    addPlayerButton.addEventListener('click', addNewPlayer)
+
     let teamName = document.createElement('p') 
     teamName.innerText = `${team.location}  ${team.name}` 
     
     let playerList = document.createElement('ul')
     playerList.id = `player-list-${team.id}`
 
+
     teamContainer.append(teamCard) 
     teamCard.append(teamLogo)
     teamCard.append(teamName) 
     teamCard.append(playerList) 
-    // teamCard.append(playerButton)
+    teamCard.append(addPlayerButton)
 
 }  
 
