@@ -8,13 +8,6 @@ const PLAYERS_URL = `${BASE_URL}/players`
     getallPlayers() 
 })  
 
-function getAllTeams(){
-    fetch(TEAMS_URL)
-    .then(response => response.json())
-    .then( allTeams => {allTeams.forEach(team => {
-            renderSingleTeam(team)})
-    })
-} 
 
  function getRandomTeams(){
      fetch(TEAMS_URL)
@@ -46,18 +39,18 @@ function renderSingleTeam(team) {
     let playerList = document.createElement('ul')
     playerList.id = `player-list-${team.id}`
 
-    // let playerButton = document.createElement('button')
-    // playerButton.classList.add('button')
-    // playerButton.innerText = "Add New Player"
+    let playerButton = document.createElement('button')
+    playerButton.classList.add('button')
+    playerButton.innerText = "Add New Player"
 
-    //playerButton.addEventListener("click" ,  () => )
-    /*  team.players.forEach(play => { renderSinglePlayer (play, playerList)})   */
+    playerButton.addEventListener("click" ,  () => )
+    team.players.forEach(play => { renderSinglePlayer (play, playerList)})   
 
     teamContainer.append(teamCard) 
     teamCard.append(teamLogo)
     teamCard.append(teamName) 
     teamCard.append(playerList) 
-    // teamCard.append(playerButton)
+    teamCard.append(playerButton)
 
 }  
 

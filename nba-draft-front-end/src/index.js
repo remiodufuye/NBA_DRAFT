@@ -20,7 +20,7 @@ function getAllTeams(){
      fetch(TEAMS_URL)
     .then(response => response.json())
     .then( allTeams => { 
-        for ( i =0 ; i < 4 ; i++) {
+        for ( i =0 ; i < 12 ; i++) {
             var index = Math.floor(Math.random() * allTeams.length)
             var pickedTeam = allTeams[index] 
             allTeams.splice(index,1)
@@ -45,13 +45,6 @@ function renderSingleTeam(team) {
     
     let playerList = document.createElement('ul')
     playerList.id = `player-list-${team.id}`
-
-    // let playerButton = document.createElement('button')
-    // playerButton.classList.add('button')
-    // playerButton.innerText = "Add New Player"
-
-    //playerButton.addEventListener("click" ,  () => )
-    /*  team.players.forEach(play => { renderSinglePlayer (play, playerList)})   */
 
     teamContainer.append(teamCard) 
     teamCard.append(teamLogo)
