@@ -92,7 +92,7 @@ function renderAllplayers(player) {
     seasonJoined.innerText = ` Joined NBA: ${player.season}`
 
     pickPlayer.addEventListener('click', addNewPlayer)
-    profilePlayer.addEventListener('click', getProfile)
+    profilePlayer.addEventListener('click', () => getProfile(player.id))
     retirePlayer.addEventListener('click', ()=> removePlayer(player.id,playerCard , player.player_name))
     
     playersContainer.append(playerCard)  
@@ -187,7 +187,26 @@ function tradePlayer(playerID ,playerLi,playerButton) {
 
 } 
 
-function getProfile(event) {
-    console.log('inside profile view!!')
+function getProfile(profileID) {
+
+    console.log('inside profile/stats view!!')
+
+    let myModal = document.querySelector('#myModal')
+
+    let myModalContent = document.createElement('div')
+    myModalContent.classList.add('modal-content')
+
+    let myModalSpan = document.createElement('span')
+    myModalSpan.classList.add('close')
+    myModalSpan.innerText = '&times;'
+
+    let myModalSpanText = document.createElement('p')
+    myModalSpanText.innerText = "Is This Working!!" 
+
+
+     
+   
+
 
 } 
+
