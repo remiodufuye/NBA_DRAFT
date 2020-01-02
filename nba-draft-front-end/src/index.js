@@ -103,7 +103,7 @@ function renderAllplayers(player) {
     playerCard.append(profilePlayer)   
     playerCard.append(retirePlayer) 
 
-    console.log(player) 
+    // console.log(player) 
      
 }
 
@@ -172,7 +172,6 @@ function addNewPlayer(teamId,playerList){
         } ).then(error => console.log(error))
     }
 
-
     
     console.log("add a new player !!")   
 }
@@ -187,26 +186,78 @@ function tradePlayer(playerID ,playerLi,playerButton) {
 
 } 
 
+
 function getProfile(profileID) {
+    
+    fetch(`http://localhost:3000/players/${profileID}`) 
+    .then(res => res.json())
+    .then(data => DisplayProfile(data))
+    .catch(error => console.log(error)) 
+} 
 
-    console.log('inside profile/stats view!!')
 
-    let myModal = document.querySelector('#myModal')
+function DisplayProfile(player) {
 
+    console.log(player)
+    
+    let myModal = document.getElementById('myModal')
+    
     let myModalContent = document.createElement('div')
     myModalContent.classList.add('modal-content')
-
+    
     let myModalSpan = document.createElement('span')
     myModalSpan.classList.add('close')
-    myModalSpan.innerText = '&times;'
+    myModalSpan.innerText = 'x'
+    
+    let myModalSpanContent = document.createElement('p')
 
-    let myModalSpanText = document.createElement('p')
-    myModalSpanText.innerText = "Is This Working!!" 
+    myModalSpanContent.innerText = "Is This Working!!" 
+    myModal.append(myModalContent)
+    myModalContent.append(myModalSpan)
+    myModalSpan.append(myModalSpanContent) 
+    
+    myModal.style.display = "block" ; 
+    
+    var span = document.getElementsByClassName("close")[0];
+    
+     span.onclick =  function() {
+        myModalSpan.style.display = "none"
 
+        window.onclick = function(event) {
+            if (event.target == myModal) {
+                myModal.style.display = "none" 
+            }
+          }
 
-     
-   
+    }
+    
+
+    console.log('inside profile/stats view!!')
 
 
 } 
 
+// id: 190
+// player_name: "Karl-Anthony Towns"
+// player_position: "Point Guard"
+// team_abbreviation: "FAKER"
+// age: 19
+// player_height: 203.2
+// player_weight: 108.86208
+// college: "Northern Oklahoma Institute"
+// country: "USA"
+// draft_year: 2003
+// draft_round: 1
+// draft_number: 1
+// gp: 79
+// pts: 20.9
+// reb: 5.5
+// ast: 5.9
+// net_rating: 2.6
+// oreb_pct: 0.035
+// dreb_pct: 0.116
+// usg_pct: 0.28
+// ts_pct: 0.488
+// ast_pct: 0.268
+// season: "2003-04"
+// team_id: 275
