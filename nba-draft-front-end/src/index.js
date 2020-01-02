@@ -33,7 +33,6 @@ function getAllTeams(){
 function renderSingleTeam(team) { 
 
     let teamContainer = document.querySelector('main')
-    // let teamContainer = document.querySelector('#teams-container')
     let teamCard = document.createElement('div') 
     teamCard.dataset.id = team.id
     teamCard.classList.add('card') 
@@ -45,15 +44,16 @@ function renderSingleTeam(team) {
     let addPlayerButton = document.createElement('button')
     addPlayerButton.innerText = "Add New Player"
     addPlayerButton.classList.add('button')
-    addPlayerButton.addEventListener('click', addNewPlayer)
-
+    
     let teamName = document.createElement('p') 
     teamName.innerText = `${team.location}  ${team.name}` 
     
     let playerList = document.createElement('ul')
-    playerList.id = `player-list-${team.id}`
-
+    playerList.id = `team-list-${team.id}`
+    
     team.players.forEach(plr => {renderSinglePlayer(plr, playerList)})
+    
+    addPlayerButton.addEventListener('click', () => addNewPlayer(team.id, playerList))
 
     teamContainer.append(teamCard) 
     teamCard.append(teamLogo)
@@ -70,12 +70,11 @@ function getallPlayers() {
         allplayers.forEach(player => renderAllplayers(player))
     })
 }
+
 function renderAllplayers(player) {
-    
-    // let playersContainer = document.querySelector('#players-container') 
     let playersContainer = document.querySelector('#players-container') 
     let playerCard = document.createElement('div')
-    playerCard.classList.add('card') // change to 'card'
+    playerCard.classList.add('card') 
     playerCard.dataset.id = `player-${player.id}`
     
     let playername = document.createElement('h2')
@@ -94,7 +93,7 @@ function renderAllplayers(player) {
 
     pickPlayer.addEventListener('click', addNewPlayer)
     profilePlayer.addEventListener('click', getProfile)
-    retirePlayer.addEventListener('click', retirePlayer)
+    retirePlayer.addEventListener('click', ()=> removePlayer(player.id,playerCard , player.player_name))
     
     playersContainer.append(playerCard)  
     playerCard.append(playername)
@@ -117,7 +116,7 @@ function renderSinglePlayer(player, playerList) {
     const tradePlayerBtn = document.createElement('button')
     tradePlayerBtn.innerText = "Trade"
     tradePlayerBtn.dataset.playerID = player.id 
-    tradePlayerBtn.addEventListener('click',() => tradePlayer(playerLi.id))
+    tradePlayerBtn.addEventListener('click',() => tradePlayer(player.id,playerLi,tradePlayerBtn))
     tradePlayerBtn.classList.add('trade')
     
     playerList.append(playerLi) 
@@ -125,15 +124,94 @@ function renderSinglePlayer(player, playerList) {
 }   
 
 
+function removePlayer(playerID,playerCard,playerName) {
+
+   const configOptions = {
+        method:"DELETE",
+        headers: {
+            "Content-Type":"application/json",
+            "Accept":"application/json"
+        }
+   } 
+
+   fetch(`${BASE_URL}/players/${playerID}`, configOptions) 
+   .then(res => res.json())
+   .then(data => {
+       playerCard.remove()
+       const playerLiItem = document.getElementById(`player-${player.id}`)
+       playerLiItem.remove() 
+    })
+   .catch(error => console.log(error))
+
+   alert(`${playerName} Will Be Retired !!`) 
+
+}
 
 
-function addNewPlayer(teamId){
+function addNewPlayer(teamId,playerList){
+
+    const configOptions = {
+        method:"POST",
+        headers: {
+         "Content-Type":"application/json",
+         "Accept":"application/json"
+        } ,
+        body: JSON.stringify({team_id:teamId})
+    }
+
+    const playerCount = playerList.childElementCount
+ 
+    if (playerCount < 5) {
+        fetch(PLAYERS_URL,configOptions)
+        .then(res => res.json())
+        .then(player => {
+            const teamID = player.team_id
+            const team = document.getElementById(`team-list-${teamID}`)
+            renderSinglePlayer(player,team)
+            renderAllplayers(player)
+        } ).then(error => console.log(error))
+    }
+
+
+    
     console.log("add a new player !!")   
 }
 
-function tradePlayer(event,playerID) {
-    console.log('Trade this Player!!') 
-}
+
+
+// function addNewPokemon(id) { 
+//     const trainerList = document.getElementById(`trainer-list-${id}`)
+//     const pokeCount = trainerList.childElementCount
+//     if (pokeCount < 6) {
+//         fetch(POKEMONS_URL, {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 'Accept': "application/json"
+//             },
+//             body: JSON.stringify({
+//                 trainer_id: id
+//             })
+//         })
+//         .then(res => res.json())
+//         .then(pokemon => {
+//             const trainerId = pokemon.trainer_id
+//             const trainer = document.getElementById(`trainer-list-${trainerId}`)
+//             renderSinglePokemon(pokemon, trainer)
+//         })
+//     } else {
+//         alert("Stop catchin em all!")
+//     }
+// }
+
+
+
+function tradePlayer(playerID ,playerLi,playerButton) {
+  
+        playerLi.remove()
+        playerButton.remove()
+
+} 
 
 function getProfile(event) {
     console.log('inside profile view!!')
