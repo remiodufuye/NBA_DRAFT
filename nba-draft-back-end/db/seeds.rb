@@ -28,6 +28,21 @@ myers = User.create(name:"Myers")
 miller = User.create(name:"Miller") 
 magic = User.create(name:"Magic") 
 admin = User.create(name:"Admin") 
+## new 
+steve = User.create(name:"steve") 
+mich = User.create(name:"mich") 
+olive = User.create(name:"olive") 
+randy = User.create(name:"randy") 
+kevin = User.create(name:"kevin") 
+demar = User.create(name:"demar") 
+cousin = User.create(name:"cousin") 
+mikii = User.create(name:"mikii") 
+macai = User.create(name:"macai") 
+oliverry = User.create(name:"oliverry") 
+ouch = User.create(name:"ouch") 
+willow = User.create(name:"willow") 
+lolly = User.create(name:"lolly") 
+christopher = User.create(name:"christopher") 
 
 lakers = Team.create(name:"Lakers" , abbreviation: "LAL" , location: "Los Angeles", logo:"https://worldsportlogos.com/wp-content/uploads/2019/06/Los-Angeles-Lakers-Logo.png" , user_id:remi.id)
 bucks = Team.create(name:"Bucks" , abbreviation: "MIL" , location: "Milwakee" ,logo:"https://worldsportlogos.com/wp-content/uploads/2018/03/Milwaukee-Bucks-logo-1280x720.png" , user_id:bob.id )
@@ -51,7 +66,32 @@ pacers = Team.create(name:"Pacers" , abbreviation: "IND" , location: "Indiana", 
 kingjames = Player.create(
     player_name:"LeBron James",player_position:"Forward",team_abbreviation:"LAL",age:19.0,player_height:203.20,player_weight:108.86208,college:"None",country:"USA",draft_year:2003,draft_round:1,
     draft_number:1,gp:79,pts:20.9,reb:5.5,ast:5.9,net_rating:2.6, oreb_pct:0.035,dreb_pct:0.116,usg_pct:0.28,ts_pct:0.488,ast_pct:0.268,season:"2003-04",team_id:lakers.id
-    )  
+    ) 
+
+jmaggie = Player.create(
+        player_name:"Jevelle Magee",player_position:"Center",team_abbreviation:"LAL",age:19.0,player_height:203.20,player_weight:108.86208,college:"Duke",country:"USA",draft_year:2003,draft_round:1,
+        draft_number:1,gp:79,pts:20.9,reb:5.5,ast:5.9,net_rating:2.6, oreb_pct:0.035,dreb_pct:0.116,usg_pct:0.28,ts_pct:0.488,ast_pct:0.268,season:"2003-04",team_id:lakers.id
+        )  
+
+kyle = Player.create(
+        player_name:"Kyle Kuzma",player_position:"Forward",team_abbreviation:"LAL",age:19.0,player_height:203.20,player_weight:108.86208,college:"Texas A and M",country:"USA",draft_year:2003,draft_round:1,
+        draft_number:1,gp:79,pts:20.9,reb:5.5,ast:5.9,net_rating:2.6, oreb_pct:0.035,dreb_pct:0.116,usg_pct:0.28,ts_pct:0.488,ast_pct:0.268,season:"2003-04",team_id:lakers.id
+        )  
+
+qcook = Player.create(
+     player_name:"Quin Cook",player_position:"Point Gaurd",team_abbreviation:"LAL",age:19.0,player_height:203.20,player_weight:108.86208,college:"PG",country:"USA",draft_year:2003,draft_round:1,
+     draft_number:1,gp:79,pts:20.9,reb:5.5,ast:5.9,net_rating:2.6, oreb_pct:0.035,dreb_pct:0.116,usg_pct:0.28,ts_pct:0.488,ast_pct:0.268,season:"2003-04",team_id:lakers.id
+     )  
+
+rondo = Player.create(
+        player_name:"Rajon Rondo",player_position:"Shooting Gaurd",team_abbreviation:"LAL",age:19.0,player_height:203.20,player_weight:108.86208,college:"Wild Cats",country:"USA",draft_year:2003,draft_round:1,
+        draft_number:1,gp:79,pts:20.9,reb:5.5,ast:5.9,net_rating:2.6, oreb_pct:0.035,dreb_pct:0.116,usg_pct:0.28,ts_pct:0.488,ast_pct:0.268,season:"2003-04",team_id:lakers.id
+        )  
+    
+
+        
+
+        
 
 #  Bucks Players # 
 giannis = Player.create(

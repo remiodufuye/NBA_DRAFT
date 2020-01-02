@@ -83,6 +83,7 @@ function renderAllplayers(player) {
     let playercollege = document.createElement('h2') 
     let pickPlayer = document.createElement('button')
     let profilePlayer = document.createElement('button')
+    let retirePlayer = document.createElement('button')
     let draftPick = document.createElement('h2')
     
     playername.innerText = player.player_name
@@ -90,15 +91,20 @@ function renderAllplayers(player) {
     playercollege.innerText = player.college 
     pickPlayer.innerText = "Pick Player"
     profilePlayer.innerText = "View Stats"
+    retirePlayer.innerText = "Retrire Player"
+
     pickPlayer.addEventListener('click', addNewPlayer)
     profilePlayer.addEventListener('click', getProfile)
+    retirePlayer.addEventListener('click', retirePlayer)
     
     playersContainer.append(playerCard)  
     playerCard.append(playername)
     playerCard.append(playercountry)
     playerCard.append(playercollege) 
     playerCard.append(pickPlayer) 
-    playerCard.append(profilePlayer)     
+    playerCard.append(profilePlayer)   
+    playerCard.append(retirePlayer) 
+      
     console.log(player) 
      
 }

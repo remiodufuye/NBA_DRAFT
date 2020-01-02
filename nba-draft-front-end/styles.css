@@ -87,7 +87,7 @@ body {
   } 
 
   /* added  */
-  
+
   .card {
     text-align: center;
     border: grey solid 1px;
@@ -97,7 +97,7 @@ body {
     display: inline-grid;
     margin: 1rem 2rem;
     box-shadow: 3px 4px #e04b52
-  }
+  } 
   
   p {
     font-size: 1.5em;
