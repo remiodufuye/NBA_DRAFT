@@ -4,6 +4,7 @@ const TEAMS_URL = `${BASE_URL}/teams`
 const PLAYERS_URL = `${BASE_URL}/players`
 
  document.addEventListener("DOMContentLoaded" , function() {
+    event.preventDefault()
     getRandomTeams()
     getallPlayers() 
 })  
@@ -78,20 +79,18 @@ function renderAllplayers(player) {
     playerCard.dataset.id = `player-${player.id}`
     
     let playername = document.createElement('h2')
-    let playerPosition = document.createElement('h3')
-    let playercountry = document.createElement('h2')
     let playercollege = document.createElement('h2') 
     let pickPlayer = document.createElement('button')
     let profilePlayer = document.createElement('button')
     let retirePlayer = document.createElement('button')
-    let draftPick = document.createElement('h2')
+    let seasonJoined = document.createElement('h2')
     
     playername.innerText = player.player_name
-    playercountry.innerText = player.country
-    playercollege.innerText = player.college 
+    playercollege.innerText = `College: ${player.college}` 
     pickPlayer.innerText = "Pick Player"
     profilePlayer.innerText = "View Stats"
     retirePlayer.innerText = "Retrire Player"
+    seasonJoined.innerText = ` Joined NBA: ${player.season}`
 
     pickPlayer.addEventListener('click', addNewPlayer)
     profilePlayer.addEventListener('click', getProfile)
@@ -99,12 +98,12 @@ function renderAllplayers(player) {
     
     playersContainer.append(playerCard)  
     playerCard.append(playername)
-    playerCard.append(playercountry)
     playerCard.append(playercollege) 
+    playerCard.append(seasonJoined) 
     playerCard.append(pickPlayer) 
     playerCard.append(profilePlayer)   
     playerCard.append(retirePlayer) 
-      
+
     console.log(player) 
      
 }

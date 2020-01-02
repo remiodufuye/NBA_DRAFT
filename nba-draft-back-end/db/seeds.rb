@@ -72,26 +72,28 @@ jmaggie = Player.create(
         player_name:"Jevelle Magee",player_position:"Center",team_abbreviation:"LAL",age:19.0,player_height:203.20,player_weight:108.86208,college:"Duke",country:"USA",draft_year:2003,draft_round:1,
         draft_number:1,gp:79,pts:20.9,reb:5.5,ast:5.9,net_rating:2.6, oreb_pct:0.035,dreb_pct:0.116,usg_pct:0.28,ts_pct:0.488,ast_pct:0.268,season:"2003-04",team_id:lakers.id
         )  
-
-kyle = Player.create(
-        player_name:"Kyle Kuzma",player_position:"Forward",team_abbreviation:"LAL",age:19.0,player_height:203.20,player_weight:108.86208,college:"Texas A and M",country:"USA",draft_year:2003,draft_round:1,
-        draft_number:1,gp:79,pts:20.9,reb:5.5,ast:5.9,net_rating:2.6, oreb_pct:0.035,dreb_pct:0.116,usg_pct:0.28,ts_pct:0.488,ast_pct:0.268,season:"2003-04",team_id:lakers.id
+        
+        # Warriors
+        
+        scurry = Player.create(
+            player_name:"Steph Curry",player_position:"Point Gaurd",team_abbreviation:"GSW",age:19.0,player_height:203.20,player_weight:108.86208,college:"Davidson",country:"USA",draft_year:2003,draft_round:1,
+            draft_number:1,gp:79,pts:20.9,reb:5.5,ast:5.9,net_rating:2.6, oreb_pct:0.035,dreb_pct:0.116,usg_pct:0.28,ts_pct:0.488,ast_pct:0.268,season:"2003-04",team_id:warriors.id
         )  
-
-qcook = Player.create(
-     player_name:"Quin Cook",player_position:"Point Gaurd",team_abbreviation:"LAL",age:19.0,player_height:203.20,player_weight:108.86208,college:"PG",country:"USA",draft_year:2003,draft_round:1,
-     draft_number:1,gp:79,pts:20.9,reb:5.5,ast:5.9,net_rating:2.6, oreb_pct:0.035,dreb_pct:0.116,usg_pct:0.28,ts_pct:0.488,ast_pct:0.268,season:"2003-04",team_id:lakers.id
-     )  
-
-rondo = Player.create(
-        player_name:"Rajon Rondo",player_position:"Shooting Gaurd",team_abbreviation:"LAL",age:19.0,player_height:203.20,player_weight:108.86208,college:"Wild Cats",country:"USA",draft_year:2003,draft_round:1,
-        draft_number:1,gp:79,pts:20.9,reb:5.5,ast:5.9,net_rating:2.6, oreb_pct:0.035,dreb_pct:0.116,usg_pct:0.28,ts_pct:0.488,ast_pct:0.268,season:"2003-04",team_id:lakers.id
+        
+        klay = Player.create(
+            player_name:"Klay Thompson",player_position:"Shooting Gaurd",team_abbreviation:"GSW",age:19.0,player_height:203.20,player_weight:108.86208,college:"Wild Cats",country:"USA",draft_year:2003,draft_round:1,
+            draft_number:1,gp:79,pts:20.9,reb:5.5,ast:5.9,net_rating:2.6, oreb_pct:0.035,dreb_pct:0.116,usg_pct:0.28,ts_pct:0.488,ast_pct:0.268,season:"2003-04",team_id:warriors.id
         )  
-    
+        
+        ## Houston
+
+        beard = Player.create(
+                player_name:"James Harden",player_position:"Point Gaurd",team_abbreviation:"HOU",age:19.0,player_height:203.20,player_weight:108.86208,college:"Texas A and M",country:"USA",draft_year:2003,draft_round:1,
+                draft_number:1,gp:79,pts:20.9,reb:5.5,ast:5.9,net_rating:2.6, oreb_pct:0.035,dreb_pct:0.116,usg_pct:0.28,ts_pct:0.488,ast_pct:0.268,season:"2003-04",team_id:rockets.id
+                )  
 
         
-
-        
+      
 
 #  Bucks Players # 
 giannis = Player.create(
@@ -105,6 +107,13 @@ draft_number:39,gp:27,pts:6.1,reb:1.9,ast:1.0,net_rating:2.2,oreb_pct:0.01,dreb_
 )
 
 
+# Kawhi Leonard
 
+# clippers 
+
+klaw = Player.create(
+    player_name:"Kawhi Leonard",player_position:"Forward" , team_abbreviation:"LAC",age:21.0,player_height:200.66,player_weight:97.52228000000001,college:"San Diego State",country:"USA",draft_year:2011,draft_round:2,
+    draft_number:39,gp:27,pts:6.1,reb:1.9,ast:1.0,net_rating:2.2,oreb_pct:0.01,dreb_pct:0.124,usg_pct:0.159,ts_pct:0.532,ast_pct:0.085,season:"2012-13",team_id:clippers.id 
+    )
 
 
