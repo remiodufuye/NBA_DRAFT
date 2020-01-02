@@ -5,11 +5,9 @@ class PlayersController < ApplicationController
             render json: players.to_json(:except => [:created_at, :updated_at])
         end 
 
-
         def create
             player = Player.create(params[strong_params]) 
-            # check strong params 
-            # player = Player.create(params[:id]) 
+            render json: player
         end 
 
         def destroy
@@ -19,10 +17,11 @@ class PlayersController < ApplicationController
 
         private
 
-        def strong_params
-            
+         def strong_params
+            params.require(:player).permit(:player_name,:player_position ,:player_name ,:player_position,:team_abbreviation,:age,
+                                            :player_height,:player_weight,:college,:country,:draft_year,:draft_round,:draft_number,
+                                            :gp,:pts,:reb,:ast,:net_rating,:oreb_pct,:dreb_pct,:usg_pct,:ts_pct,:ast_pct,:season )
         end 
-
 
 end
 

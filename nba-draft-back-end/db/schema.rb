@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2019_12_30_175427) do
 
   create_table "players", force: :cascade do |t|
     t.string "player_name"
+    t.string "player_position"
     t.string "team_abbreviation"
     t.float "age"
     t.float "player_height"

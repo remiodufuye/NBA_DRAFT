@@ -58,7 +58,23 @@ body {
     padding-bottom: 30px;
   }
 
-  
+  .teams-box{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-gap: 20px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+  }
+
+  .player {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-gap: 20px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+  }
   /*  Team Card  */ 
 
   div.card { 
@@ -68,8 +84,20 @@ body {
     box-shadow: 10px 10px grey;
     padding: 10px;
     border-radius: 10px;
-  }
+  } 
 
+  /* added  */
+
+  .card {
+    text-align: center;
+    border: grey solid 1px;
+    padding: 1rem;
+    width: 15rem;
+    height: 25rem;
+    display: inline-grid;
+    margin: 1rem 2rem;
+    box-shadow: 3px 4px #e04b52
+  } 
   
   p {
     font-size: 1.5em;
@@ -90,6 +118,14 @@ body {
     border-radius: 10px;
   }
   
+  button.trade {
+    font-size: .65em;
+    color: #fff;
+    background-color:red;
+    border-radius: 10px;
+  }
+
+
   button.release {
     float: right;
     background-color: #E1332D;
