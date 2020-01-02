@@ -179,32 +179,6 @@ function addNewPlayer(teamId,playerList){
 
 
 
-// function addNewPokemon(id) { 
-//     const trainerList = document.getElementById(`trainer-list-${id}`)
-//     const pokeCount = trainerList.childElementCount
-//     if (pokeCount < 6) {
-//         fetch(POKEMONS_URL, {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 'Accept': "application/json"
-//             },
-//             body: JSON.stringify({
-//                 trainer_id: id
-//             })
-//         })
-//         .then(res => res.json())
-//         .then(pokemon => {
-//             const trainerId = pokemon.trainer_id
-//             const trainer = document.getElementById(`trainer-list-${trainerId}`)
-//             renderSinglePokemon(pokemon, trainer)
-//         })
-//     } else {
-//         alert("Stop catchin em all!")
-//     }
-// }
-
-
 
 function tradePlayer(playerID ,playerLi,playerButton) {
   
